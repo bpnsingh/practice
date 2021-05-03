@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.1 on darwin)" generated="20200728 07:16:54.991" rpa="false">
+<suite id="s1" name="Test" source="/Users/bsengar/PycharmProjects/practice/rf_test/test.robot">
+<test id="s1-t1" name="Sample visual regression test case">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://www.google.com/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20200728 07:16:55.185" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com/'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200728 07:16:56.968" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20200728 07:16:56.968" endtime="20200728 07:16:56.968"></status>
+</kw>
+<msg timestamp="20200728 07:16:56.970" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 80
+</msg>
+<status status="FAIL" starttime="20200728 07:16:55.184" endtime="20200728 07:16:56.970"></status>
+</kw>
+<status status="FAIL" starttime="20200728 07:16:55.184" endtime="20200728 07:16:56.971" critical="yes">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 80
+</status>
+</test>
+<status status="FAIL" starttime="20200728 07:16:54.992" endtime="20200728 07:16:56.971"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

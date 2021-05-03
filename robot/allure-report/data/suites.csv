@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Dec 23 17:45:20 IST 2020","Wed Dec 23 17:45:20 IST 2020","1","","Ex1","","","","TC2",""
+"passed","Wed Dec 23 17:45:20 IST 2020","Wed Dec 23 17:45:20 IST 2020","1","","Ex1","","","","TC3",""
+"passed","Wed Dec 23 17:45:20 IST 2020","Wed Dec 23 17:45:20 IST 2020","2","","Ex1","","","","TC1",""

@@ -1,0 +1,49 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "Bipins-MacBook-Pro.local",
+    "children" : [ {
+      "name" : "default",
+      "children" : [ {
+        "name" : "TC2",
+        "uid" : "e10d9beb57b537c9",
+        "parentUid" : "e34a302b37d9301d57279e761f99c00e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608725720349,
+          "stop" : 1608725720350,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "TC3",
+        "uid" : "d5235c3d6c5a30f7",
+        "parentUid" : "e34a302b37d9301d57279e761f99c00e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608725720351,
+          "stop" : 1608725720352,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "TC1",
+        "uid" : "9653752f1d522866",
+        "parentUid" : "e34a302b37d9301d57279e761f99c00e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1608725720346,
+          "stop" : 1608725720348,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e34a302b37d9301d57279e761f99c00e"
+    } ],
+    "uid" : "964fdd9e6ea9de11dbd30aaf817f7df2"
+  } ]
+}

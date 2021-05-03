@@ -1,0 +1,45 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Ex1",
+    "children" : [ {
+      "name" : "TC1",
+      "uid" : "9653752f1d522866",
+      "parentUid" : "7f25592e1c4c1d7ccc189f6718886407",
+      "status" : "passed",
+      "time" : {
+        "start" : 1608725720346,
+        "stop" : 1608725720348,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "TC2",
+      "uid" : "e10d9beb57b537c9",
+      "parentUid" : "7f25592e1c4c1d7ccc189f6718886407",
+      "status" : "passed",
+      "time" : {
+        "start" : 1608725720349,
+        "stop" : 1608725720350,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "TC3",
+      "uid" : "d5235c3d6c5a30f7",
+      "parentUid" : "7f25592e1c4c1d7ccc189f6718886407",
+      "status" : "passed",
+      "time" : {
+        "start" : 1608725720351,
+        "stop" : 1608725720352,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "7f25592e1c4c1d7ccc189f6718886407"
+  } ]
+}
