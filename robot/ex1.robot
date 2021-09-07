@@ -1,13 +1,10 @@
 *** Settings ***
 Documentation    Example using the space separated plain text format.
 Library          OperatingSystem
+Resource         ${var}.robot
 
 *** Test Cases ***
 TC1
-    Log  pass
+    Log  ${user1}
+    Log To Console   ${android_phone_1}
 
-TC2
-    Log  pass
-
-TC3
-    Log        This is rather boring example
