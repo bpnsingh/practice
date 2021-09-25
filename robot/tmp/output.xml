@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.5 on darwin)" generated="20210715 08:20:47.172" rpa="false">
+<suite id="s1" name="Testprojectdemo" source="/Users/bipinsengar/PycharmProjects/practice/robot/testprojectdemo.robot">
+<kw name="Init Session" type="setup">
+<kw name="Init Testproject Driver" library="TestProjectLibrary">
+<arguments>
+<arg>chrome</arg>
+<arg>job_name=TestProject Robot</arg>
+<arg>url=https://example.testproject.io/web/</arg>
+</arguments>
+<msg timestamp="20210715 08:20:47.483" level="INFO">Token used as specified in constructor: 1sGbErFA5x3V_cdQb3kz28eH1nnWxtWEnkhlR0B4pL01</msg>
+<msg timestamp="20210715 08:20:47.483" level="INFO">Using token from environment variable...</msg>
+<msg timestamp="20210715 08:20:47.483" level="INFO">No Agent service address found in TP_AGENT_URL environment variable, defaulting to http://127.0.0.1:8585 (localhost)</msg>
+<msg timestamp="20210715 08:20:47.483" level="INFO">Using http://127.0.0.1:8585 as the Agent URL</msg>
+<msg timestamp="20210715 08:20:47.485" level="INFO">SDK version: 1.2.1</msg>
+<msg timestamp="20210715 08:20:47.486" level="INFO">Session request: {'projectName': 'TestProject Robot', 'jobName': 'TestProject Robot', 'capabilities': {'browserName': 'chrome', 'version': '', 'platform': 'ANY', 'goog:chromeOptions': {'extensions': [], 'args': []}}, 'sdkVersion': '1.2.1', 'language': 'Python', 'reportType': 'CLOUD_AND_LOCAL', 'reportName': None, 'reportPath': None}</msg>
+<msg timestamp="20210715 08:20:53.142" level="INFO">Report URL: http://127.0.0.1:8585/api/report/20210715-082050.html</msg>
+<msg timestamp="20210715 08:20:53.143" level="INFO">Socket connection to 127.0.0.1:50482 established successfully</msg>
+<msg timestamp="20210715 08:20:53.143" level="INFO">Development session started...</msg>
+<msg timestamp="20210715 08:20:53.244" level="INFO">Session ID is 81cb7cf08c87209b05d74bd6766e2a1c</msg>
+<status status="PASS" starttime="20210715 08:20:47.479" endtime="20210715 08:20:54.122"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:47.479" endtime="20210715 08:20:54.122"></status>
+</kw>
+<test id="s1-t1" name="Set Session">
+<kw name="Register Keyword To Run On Failure" library="TestProjectLibrary">
+<arguments>
+<arg>None</arg>
+</arguments>
+<assign>
+<var>${previous kw}</var>
+</assign>
+<msg timestamp="20210715 08:20:54.127" level="INFO">No keyword will be run on failure.</msg>
+<msg timestamp="20210715 08:20:54.487" level="INFO">${previous kw} = Capture Page Screenshot</msg>
+<status status="PASS" starttime="20210715 08:20:54.123" endtime="20210715 08:20:54.487"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:54.122" endtime="20210715 08:20:54.487" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Login With Incorrect Password">
+<kw name="Base Login">
+<arguments>
+<arg>${INCORRECT_PASSWORD}</arg>
+</arguments>
+<kw name="Press Keys" library="TestProjectLibrary">
+<arguments>
+<arg>css:#name</arg>
+<arg>${EMAIL}</arg>
+</arguments>
+<msg timestamp="20210715 08:20:54.493" level="INFO">Sending key(s) (('test@testproject.io',),) to css:#name element.</msg>
+<msg timestamp="20210715 08:20:54.823" level="INFO">Sending keys test@testproject.io</msg>
+<status status="PASS" starttime="20210715 08:20:54.489" endtime="20210715 08:20:55.216"></status>
+</kw>
+<kw name="Input Text" library="TestProjectLibrary">
+<arguments>
+<arg>css:#password</arg>
+<arg>${input_password}</arg>
+</arguments>
+<msg timestamp="20210715 08:20:55.220" level="INFO">Typing text '67890' into text field 'css:#password'.</msg>
+<status status="PASS" starttime="20210715 08:20:55.216" endtime="20210715 08:20:55.652"></status>
+</kw>
+<kw name="Get Value" library="TestProjectLibrary">
+<arguments>
+<arg>css:#password</arg>
+</arguments>
+<assign>
+<var>${password}</var>
+</assign>
+<msg timestamp="20210715 08:20:55.983" level="INFO">${password} = 67890</msg>
+<status status="PASS" starttime="20210715 08:20:55.652" endtime="20210715 08:20:55.983"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Equals</arg>
+<arg>${password}</arg>
+<arg>${CORRECT_PASSWORD}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Equals">
+<arguments>
+<arg>${password}</arg>
+<arg>${CORRECT_PASSWORD}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${x}</arg>
+<arg>${y}</arg>
+</arguments>
+<msg timestamp="20210715 08:20:55.984" level="FAIL">67890 != 12345</msg>
+<status status="FAIL" starttime="20210715 08:20:55.984" endtime="20210715 08:20:55.984"></status>
+</kw>
+<status status="FAIL" starttime="20210715 08:20:55.983" endtime="20210715 08:20:55.984"></status>
+</kw>
+<msg timestamp="20210715 08:20:55.984" level="INFO">${result} = False</msg>
+<status status="PASS" starttime="20210715 08:20:55.983" endtime="20210715 08:20:55.984"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${result}" == "True"</arg>
+<arg>Run Keywords True</arg>
+<arg>ELSE</arg>
+<arg>Clear Fields</arg>
+</arguments>
+<kw name="Clear Fields">
+<kw name="Clear Element Text" library="TestProjectLibrary">
+<arguments>
+<arg>css:#name</arg>
+</arguments>
+<status status="PASS" starttime="20210715 08:20:55.985" endtime="20210715 08:20:56.399"></status>
+</kw>
+<kw name="Clear Element Text" library="TestProjectLibrary">
+<arguments>
+<arg>css:#password</arg>
+</arguments>
+<status status="PASS" starttime="20210715 08:20:56.399" endtime="20210715 08:20:56.781"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:55.985" endtime="20210715 08:20:56.781"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:55.984" endtime="20210715 08:20:56.781"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:54.488" endtime="20210715 08:20:56.781"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:54.488" endtime="20210715 08:20:56.781" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Login With Correct Password">
+<kw name="Base Login">
+<arguments>
+<arg>${CORRECT_PASSWORD}</arg>
+</arguments>
+<kw name="Press Keys" library="TestProjectLibrary">
+<arguments>
+<arg>css:#name</arg>
+<arg>${EMAIL}</arg>
+</arguments>
+<msg timestamp="20210715 08:20:56.786" level="INFO">Sending key(s) (('test@testproject.io',),) to css:#name element.</msg>
+<msg timestamp="20210715 08:20:57.084" level="INFO">Sending keys test@testproject.io</msg>
+<status status="PASS" starttime="20210715 08:20:56.782" endtime="20210715 08:20:57.452"></status>
+</kw>
+<kw name="Input Text" library="TestProjectLibrary">
+<arguments>
+<arg>css:#password</arg>
+<arg>${input_password}</arg>
+</arguments>
+<msg timestamp="20210715 08:20:57.456" level="INFO">Typing text '12345' into text field 'css:#password'.</msg>
+<status status="PASS" starttime="20210715 08:20:57.452" endtime="20210715 08:20:57.851"></status>
+</kw>
+<kw name="Get Value" library="TestProjectLibrary">
+<arguments>
+<arg>css:#password</arg>
+</arguments>
+<assign>
+<var>${password}</var>
+</assign>
+<msg timestamp="20210715 08:20:58.184" level="INFO">${password} = 12345</msg>
+<status status="PASS" starttime="20210715 08:20:57.851" endtime="20210715 08:20:58.184"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Equals</arg>
+<arg>${password}</arg>
+<arg>${CORRECT_PASSWORD}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Equals">
+<arguments>
+<arg>${password}</arg>
+<arg>${CORRECT_PASSWORD}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${x}</arg>
+<arg>${y}</arg>
+</arguments>
+<status status="PASS" starttime="20210715 08:20:58.185" endtime="20210715 08:20:58.185"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:58.185" endtime="20210715 08:20:58.185"></status>
+</kw>
+<msg timestamp="20210715 08:20:58.185" level="INFO">${result} = True</msg>
+<status status="PASS" starttime="20210715 08:20:58.184" endtime="20210715 08:20:58.186"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${result}" == "True"</arg>
+<arg>Run Keywords True</arg>
+<arg>ELSE</arg>
+<arg>Clear Fields</arg>
+</arguments>
+<kw name="Run Keywords True">
+<kw name="Click Button" library="TestProjectLibrary">
+<arguments>
+<arg>css:#login</arg>
+</arguments>
+<msg timestamp="20210715 08:20:58.188" level="INFO">Clicking button 'css:#login'.</msg>
+<status status="PASS" starttime="20210715 08:20:58.186" endtime="20210715 08:20:58.597"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20210715 08:21:01.598" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210715 08:20:58.597" endtime="20210715 08:21:01.599"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:58.186" endtime="20210715 08:21:01.599"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:58.186" endtime="20210715 08:21:01.599"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:56.782" endtime="20210715 08:21:01.599"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:56.782" endtime="20210715 08:21:01.600" critical="yes"></status>
+</test>
+<test id="s1-t4" name="Fill Form">
+<kw name="Select From List By Label" library="TestProjectLibrary">
+<arguments>
+<arg>css:#country</arg>
+<arg>Australia</arg>
+</arguments>
+<msg timestamp="20210715 08:21:01.605" level="INFO">Selecting options from selection list 'css:#country' by label Australia.</msg>
+<status status="PASS" starttime="20210715 08:21:01.602" endtime="20210715 08:21:02.050"></status>
+</kw>
+<kw name="${input} IN [ @{INPUT_ELEMENTS} ]" type="for">
+<kw name="${input} = css:#address" type="foritem">
+<kw name="Input Text" library="TestProjectLibrary">
+<arguments>
+<arg>${input}</arg>
+<arg>${INPUT_VALUES}[${INDEX}]</arg>
+</arguments>
+<msg timestamp="20210715 08:21:02.053" level="INFO">Typing text 'Melbourne' into text field 'css:#address'.</msg>
+<status status="PASS" starttime="20210715 08:21:02.050" endtime="20210715 08:21:02.483"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${INDEX} + 1</arg>
+</arguments>
+<assign>
+<var>${INDEX}</var>
+</assign>
+<msg timestamp="20210715 08:21:02.484" level="INFO">${INDEX} = 1</msg>
+<status status="PASS" starttime="20210715 08:21:02.484" endtime="20210715 08:21:02.484"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:02.050" endtime="20210715 08:21:02.484"></status>
+</kw>
+<kw name="${input} = css:#email" type="foritem">
+<kw name="Input Text" library="TestProjectLibrary">
+<arguments>
+<arg>${input}</arg>
+<arg>${INPUT_VALUES}[${INDEX}]</arg>
+</arguments>
+<msg timestamp="20210715 08:21:02.487" level="INFO">Typing text 'test@test.io' into text field 'css:#email'.</msg>
+<status status="PASS" starttime="20210715 08:21:02.484" endtime="20210715 08:21:02.903"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${INDEX} + 1</arg>
+</arguments>
+<assign>
+<var>${INDEX}</var>
+</assign>
+<msg timestamp="20210715 08:21:02.904" level="INFO">${INDEX} = 2</msg>
+<status status="PASS" starttime="20210715 08:21:02.903" endtime="20210715 08:21:02.904"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:02.484" endtime="20210715 08:21:02.904"></status>
+</kw>
+<kw name="${input} = css:#phone" type="foritem">
+<kw name="Input Text" library="TestProjectLibrary">
+<arguments>
+<arg>${input}</arg>
+<arg>${INPUT_VALUES}[${INDEX}]</arg>
+</arguments>
+<msg timestamp="20210715 08:21:02.907" level="INFO">Typing text '7521234545' into text field 'css:#phone'.</msg>
+<status status="PASS" starttime="20210715 08:21:02.904" endtime="20210715 08:21:03.350"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${INDEX} + 1</arg>
+</arguments>
+<assign>
+<var>${INDEX}</var>
+</assign>
+<msg timestamp="20210715 08:21:03.351" level="INFO">${INDEX} = 3</msg>
+<status status="PASS" starttime="20210715 08:21:03.351" endtime="20210715 08:21:03.351"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:02.904" endtime="20210715 08:21:03.351"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:02.050" endtime="20210715 08:21:03.351"></status>
+</kw>
+<kw name="Static Sleep">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20210715 08:21:06.352" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210715 08:21:03.351" endtime="20210715 08:21:06.352"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:03.351" endtime="20210715 08:21:06.352"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:01.602" endtime="20210715 08:21:06.352" critical="yes"></status>
+</test>
+<test id="s1-t5" name="Submit Form">
+<kw name="Click Button" library="TestProjectLibrary">
+<arguments>
+<arg>css:#save</arg>
+</arguments>
+<msg timestamp="20210715 08:21:06.357" level="INFO">Clicking button 'css:#save'.</msg>
+<status status="PASS" starttime="20210715 08:21:06.354" endtime="20210715 08:21:06.824"></status>
+</kw>
+<kw name="Click Button" library="TestProjectLibrary">
+<arguments>
+<arg>css:#logout</arg>
+</arguments>
+<msg timestamp="20210715 08:21:06.827" level="INFO">Clicking button 'css:#logout'.</msg>
+<status status="PASS" starttime="20210715 08:21:06.824" endtime="20210715 08:21:07.522"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:06.354" endtime="20210715 08:21:07.523" critical="yes"></status>
+</test>
+<kw name="Close Session" type="teardown">
+<kw name="Close All Browsers" library="TestProjectLibrary">
+<msg timestamp="20210715 08:21:07.887" level="INFO">Execution Report: /Users/bipinsengar/Library/Application Support/TestProject/Agent/reports/20210715-082050.html</msg>
+<status status="PASS" starttime="20210715 08:21:07.526" endtime="20210715 08:21:07.897"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:21:07.525" endtime="20210715 08:21:07.897"></status>
+</kw>
+<status status="PASS" starttime="20210715 08:20:47.173" endtime="20210715 08:21:07.897"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" id="s1" name="Testprojectdemo">Testprojectdemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

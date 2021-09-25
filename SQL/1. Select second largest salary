@@ -1,0 +1,13 @@
+1. Select second largest salary
+
+sqlite> SELECT MAX(salary) FROM EMP
+   ...> WHERE salary NOT IN (SELECT MAX(salary) FROM emp);
+4000       
+sqlite> SELECT MAX(salary) FROM EMP
+   ...> WHERE salary < (SELECT MAX(salary) FROM emp);
+
+Select MAX salary of departments
+SELECT id,MAX(salary) FROM DEPT GROUP BY id;
+1           100000     
+2           50000      
+3           500   

@@ -1,9 +1,9 @@
 
 def fib(n):
-    value = 1
+    assert n >= 0 and int(n) == n ,"Fibonacci number can not be negative or non integer"
     if n in fib_cache:
         return fib_cache[n]
-    if n == 1 or n == 2:
+    if n in [1,2]:
         value = 1
     elif n>2 :
         value = fib(n-1) + fib(n-2)
