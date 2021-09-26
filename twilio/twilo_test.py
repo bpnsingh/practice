@@ -14,8 +14,8 @@ call = client.calls.create(
                         #twiml='<Response><Say>I will pause 10 seconds starting now!</Say><Pause length="10"/><Play>https://demo.twilio.com/docs/classic.mp3</Play></Response>',
                         twiml='<Response><Record timeout="20" transcribe="true" /><Say>I will pause 10 seconds starting now!</Say><Pause length="10"/><Number sendDigits="wwww2"></Number></Response>',
 
-                        #to='+12013660140',
-                        to='+14152230570',
+                        to='+12013660140',
+                        #to='+14152230570',
                         from_='+12692025007'
                     )
 
