@@ -1,4 +1,5 @@
 '''
+Find all factors of a natural number
 If input is 60, try to get all possible unique divisor.
 60 --> 1,2,3,4,5,6,10,12,15,30,60
 '''
