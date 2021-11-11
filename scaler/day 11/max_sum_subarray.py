@@ -4,7 +4,7 @@ def max_sum_subarray(A,K):
     for i in range(K):
         sum+= A[i]
     max_sum = sum
-    for i in range(N-K):
+    for i in range(N-K+1):
         sum = sum - A[i] + A[K+i-1]
         if sum > max_sum:
             max_sum = sum
