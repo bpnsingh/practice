@@ -34,16 +34,15 @@ Explanation 1:
 A + B = [[1+9, 2+8, 3+7],[4+6, 5+5, 6+4],[7+3, 8+2, 9+1]] = [[10, 10, 10], [10, 10, 10], [10, 10, 10]].
 '''
 def sum_matrices(A,B):
-    ans=[]
     rows = len(A)
     columns = len(A[0])
+    ans = []
+    for i in range(rows):
+        ans.append([0]*columns)
     #lets iterate through both A and B
     for row in range(rows):
-        column_list=[]
         for column in range(columns):
-            sum = A[row][column] + B[row][column]
-            column_list.append(sum)
-        ans.append(column_list)
+            ans[row][column] = A[row][column] + B[row][column]
     return ans
 
 if __name__ == '__main__':
