@@ -47,7 +47,14 @@ Explanation 1:
 Cearly after converting rows to column and columns to rows of [[1, 2, 3],[4, 5, 6],[7, 8, 9]] we will get [[1, 4, 7], [2, 5, 8], [3, 6, 9]].
 '''
 
+def swap(A,B):
+    A = A ^ B
+    B = A ^ B
+    A = A ^ B
+    return A,B
+
 def solve(A):
+    '''
     len_row=len(A)
     len_col=len(A[0])
     #As trfanspose of A --> row -->column
@@ -55,10 +62,18 @@ def solve(A):
     for row in range(len_col):
         temp = []
         for col in range(len_row):
-            print (A[col][row])
+            #print (A[col][row])
             temp.append(A[col][row])
         ans.append(temp)
-    return ans
+    return ans'''
+#without using extra space
+    len_row = len(A)
+    len_col = len(A[0])
+    for i in range(len_row):
+        for j in range(i+1,len_col):
+            A[i][j],A[j][i]=swap(A[i][j],A[j][i])
+    return  A
+
 if __name__ == '__main__':
     A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print(solve(A))
