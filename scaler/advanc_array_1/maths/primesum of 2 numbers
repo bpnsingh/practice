@@ -1,0 +1,30 @@
+'''
+Cr
+
+'''
+class Solution:
+    # @param A : integer
+    # @return a list of integers
+    def is_prime(self,N):
+        if N < 2:
+            return False
+        i =2
+        while (i*i<=N):
+            if N % i == 0:
+                return False
+            else:
+                i+=1
+        return True
+
+    def primesum(self, A):
+        ans = []
+        for i in range(2,A):
+            if self.is_prime(i) and self.is_prime(A-i):
+                return [i,A-i]
+
+
+
+
+
+scaler = Solution()
+print (scaler.primesum(10))
