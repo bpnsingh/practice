@@ -14,16 +14,22 @@ start - number of the tower from which the disk is being moved
 stop - number of the tower to which the disk is being moved
 
 '''
-ans=[]
 class Solution:
     # @param A : integer
     # @return a list of list of integers
-    def twh(self,N,src,dst,temp):
+    def honoi(self,N,src,dst,temp):
         if N == 0:
-            return
-        twh(N-1,src,temp,dst)
-        ans.append([N,])
+            return None
+        self.honoi(N-1,src,temp,dst)
+        ans.append([N,src,dst])
+        self.honoi(N-1,temp,dst,src)
+
     def towerOfHanoi(self, A):
-        if A == 0:
-            return
-        towerOfHanoi()
+        global ans
+        ans = []
+        self.honoi(A,1,3,2)
+        return ans
+
+scaler = Solution()
+A = 3
+print (scaler.towerOfHanoi(A))
