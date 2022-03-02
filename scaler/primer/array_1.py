@@ -46,5 +46,5 @@ def solve_opt(A):
 if __name__ == "__main__":
     print (solve_opt([ 927, 707, 374, 394, 279, 799, 878, 937, 431, 112 ]))
     print(solve_opt([927]))
-    print(solve_opt([927, 927]))
+    print(solve_opt([927, 927])))
 
