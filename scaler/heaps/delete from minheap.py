@@ -16,7 +16,7 @@ class minheap:
         This function delete minimum value of heap
         '''
         N = len(A)
-        A[0],A[N-1] = self.swap(A[0],A[N-1])
+        A[0],A[N-1] = A[N-1],A[0]
         N = N - 1
         A = A[:N]
         print (A)
@@ -25,16 +25,17 @@ class minheap:
             min = i
             l = (2*i) + 1
             r = (2*i) + 2
-            print(i,l,r)
-            if r<N and A[min] > A[r]:
+            if r<N and (A[min] > A[r]) and (A[r] < A[l]):
                 min = r
-            if l<N and A[min] > A[l]:
+            if l<N and A[min] > A[l] and (A[l] < A[r]):
                 min = l
             if i == min:
                 break
-            A[i],A[min] = self.swap(A[i],A[min])
+            A[i],A[min] = A[min],A[i]
             print(A)
             i = min
+        print(A)
+        heapq.heapify(A)
         print(A)
 
 
