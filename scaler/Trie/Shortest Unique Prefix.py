@@ -30,49 +30,60 @@ Output 2:
 '''
 from day23.prrintdescending import print_dsc
 
-
 class TrieNode:
-    def __init__(self,value=None):
-        #self.value = value
-        self.child = {}
-        self.isEnd = False
-        self.freq = 0
-
-class Trie:
     def __init__(self):
-        self.root = TrieNode()
-    def insert(self,word):
-        parent = self.root
-        for i,char in enumerate(word):
-            if char not in parent.child:
-                parent.child[char] = TrieNode(char)
-                parent.freq = 0
-            parent.freq += 1
-            parent = parent.child[char]
-        parent.isEnd = True
+        self.hashmap = {}
+        self.end = False
+        self.count = 0
 
-    def search(self,word):
-        parent = self.root
-        ans=''
-        result=[]
-        for ch in word:
-            ans += ch
-            if parent[ch].freq == 1:
-                return ans
+
+class Solution:
+    # def _init_(self):
+    #     self.trie_node = TrieNode()
+    def insert(self, root, word):
+        curr = root
+        for char in word:
+            if char not in curr.hashmap:
+                new_node = TrieNode()
+                new_node.count += 1
+                curr.hashmap[char] = new_node
             else:
-                parent = parent.child[ch]
+                curr.hashmap[char].count += 1
+            curr = curr.hashmap[char]
+        curr.end = True
+
+    def search_prefix(self, word, root):
+        prefix = ''
+        curr = root
+        for char in word:
+            # print (curr.hashmap)
+            if curr.hashmap[char].count == 1:
+                prefix += char
+                break
+            else:
+                prefix += char
+                curr = curr.hashmap[char]
+        return prefix
+
+        # @param A : list of strings
+        # @return a list of strings
+    def prefix(self, A):
+        root = TrieNode()
+        curr = root
+        ans = []
+        for word in A:
+            self.insert(root, word)
+        for word in A:
+            pref = self.search_prefix(word, root)
+            ans.append(pref)
+            # print (ans)
         return ans
 
-if __name__ == '__main__':
-    word_list = ["zebra", "dog", "duck", "dove"]
-    mytrie = Trie()
-    ans= []
-    for word in word_list:
-        mytrie.insert(word)
-    for word in word_list:
-        temp=mytrie.search(word)
-        ans.append(temp)
-    print(ans)
+
+
+scaler = Solution()
+word_list = ["zebra", "dog", "duck", "dove"]
+print(scaler.prefix(word_list))
 
 
 
