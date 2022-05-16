@@ -29,7 +29,7 @@ class Solution:
         int_string = 0
         for i in range(N):
             int_string += ord(strings[i])*(29**i)
-        return int_string%37
+        return int_string
 
     def rabin_krap_search(self,input_string,pattern):
         M = len(pattern)
@@ -45,13 +45,14 @@ class Solution:
         for i in range(1,N-M+1):
             remove_char = ord(input_string[i-1])
             add_char = ord(input_string[M+i-1])*prime_multiplier
-            next_str_int = ((int_string - remove_char)//P + add_char)%37
+            next_str_int = (int_string - remove_char)//P + add_char
             if pattern_int == next_str_int:
+                print(pattern,input_string[i:i+M])
                 cnt+=1
             int_string = next_str_int
         return cnt
 
 scaler = Solution()
-A = "abcdefffabcddfffgabc"
+A = "abcdeabccddabcgabc"
 B= "abc"
 print (scaler.rabin_krap_search(A,B))

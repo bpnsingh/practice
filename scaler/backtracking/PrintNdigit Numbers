@@ -1,0 +1,26 @@
+'''
+Given number N , print all the N digit numbers using {1,2}
+N = 1 op: 1,2
+N =2 op = 11,12,21,22
+N = 3 = 111,112,121,122,211,212,221,222
+
+'''
+import copy
+class Solution:
+    def generate(self,N,numbers,index):
+        if N == 0:
+            print(numbers)
+            return
+        numbers[index] = 1
+        self.generate(N-1,copy.deepcopy(numbers),index+1)
+        numbers[index] = 2
+        self.generate(N - 1, copy.deepcopy(numbers), index + 1)
+
+    def solve(self,N):
+        numbers = [0]*3
+        index = 0
+        self.generate(N,numbers,index)
+
+
+scaler = Solution()
+scaler.solve(3)
