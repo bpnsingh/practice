@@ -15,10 +15,11 @@ class Solution:
         if A[x][y] == 1 or A[x][y] == 2:
             return False
         A[x][y] = 2
+        print (x,y)
         return self.maze_solve(A,N,M,x+1,y)    \
-                or self.maze_solve(A,N,M,x,y+1) \
-                or self.maze_solve(A,N,M,x-1,y) \
-                or self.maze_solve(A,N,M,x,y-1)
+                or self.maze_solve(A,N,M,x,y+1)
+                #or self.maze_solve(A,N,M,x-1,y) \
+                #or self.maze_solve(A,N,M,x,y-1)
 
     def solve(self, A):
         N = len(A)
