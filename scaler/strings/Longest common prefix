@@ -1,0 +1,21 @@
+
+class Solution:
+    # @param A : list of strings
+    # @return a strings
+    def longestCommonPrefix(self, A):
+        res = ""
+        #assuming first character as prefix
+        prefix = A[0]
+        N = len(prefix)
+        for i in range(N):
+            for s in A:
+                if len(s) == i or s[i] != A[0][i]:
+                    return res
+            res += prefix[i]
+        return res
+
+A = ["abcdefgh", "aefghijk", "abcefgh"]
+scaler = Solution()
+print(scaler.longestCommonPrefix(A))
+A = ["abab", "ab", "abcd"]
+print(scaler.longestCommonPrefix(A))

@@ -60,7 +60,7 @@ class Solution:
         self.generate_subsets(A, index, curr_list, ans_list)
         return sorted(ans_list)
 
-A = [1, 2, 3]
+A = [1, 2, 2]
 scaler = Solution()
 print (scaler.subsets(A))
 

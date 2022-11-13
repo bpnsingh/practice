@@ -26,7 +26,29 @@ Explanation 2:
 class Solution:
     # @param A : string
     # @return an integer
-    def solve(self, A):
+    def solve(self,A):
+        N = len(A)
+        dp = [[0]*(N) for i in range(N)]
+        #filling diagonal
+        for i in range(N):
+            dp[i][i] = 1
+        #length = j-i+1 ==> j = length + i -1
+        #for updating second diagonal
+        i = 0
+        for j in range(1,N):
+            if A[i] == A[j]:
+                dp[i][j] = 2
+            else:
+                dp[i][j] = 1
+            i+=1
+
+        for length in range(2,N+1):
+
+        return dp[0][N-1]
+
+
+
+    def solve_recursive(self, A):
         N = len(A)
         dp = [[-1]*(N) for i in range(N)]
         def LPS(i,j):

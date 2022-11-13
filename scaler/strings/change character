@@ -1,0 +1,26 @@
+class Solution:
+    # @param A : string
+    # @param B : integer
+    # @return an integer
+
+    def solve(self, A, B):
+        dict_map = {}
+        #creating dict_map
+        for c in A:
+            if c not in dict_map:
+                dict_map[c] = 1
+            else:
+                dict_map[c] += 1
+        cnt = 0
+        for index,value in enumerate(sorted(dict_map.values())):
+            B = B - value
+            if B == 0:
+                return len(dict_map) - (index + 1)
+            if B < 0:
+                return len(dict_map) - (index)
+
+
+scaler = Solution()
+A = "abcabbccd"
+B = 3
+print(scaler.solve(A,B))
