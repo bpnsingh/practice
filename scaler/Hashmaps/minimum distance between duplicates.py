@@ -9,16 +9,16 @@ class Solution:
         N  = len(A)
         ans =N
         freq_map = dict()
-        for i in range(N):
-            if A[i] not in freq_map:
+        for index,num in enumerate(A):
+            if num not in freq_map:
                 #if fist occurance then update dict with element aganist its index
-                freq_map[A[i]] = i
+                freq_map[num] = index
             else:
                 #if its duplicate, get the difference of current and last found index
-                temp = i-freq_map[A[i]]
+                temp = index-freq_map[num]
                 ans = min(temp,ans)
                 #update latest index in dict
-                freq_map[A[i]] = i
+                freq_map[num] = index
         return ans
 
 scaler = Solution()
